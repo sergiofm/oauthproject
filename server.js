@@ -6,19 +6,28 @@ var session = require('express-session');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var flash = require('connect-flash');
 
 var routes = require('./app/routes');
 var configDB = require('./config/database');
 mongoose.connect(configDB.url);
+
+require('./config/passport')(passport);
+
 
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(session({secret: 'qualquercoisaserveaqui', saveUninitialized: true, resave: true}))
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
 app.set('view engine', 'ejs');
 
-routes(app);
+routes(app, passport);
 
 app.listen(port);
 
