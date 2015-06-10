@@ -12,10 +12,9 @@
 <body>
 <div class="container">
 
-
 	<div class="page-header text-center">
 		<h1><span class="fa fa-anchor"></span> Profile Page</h1>	
-		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+		<a href="/auth/logout" class="btn btn-default btn-sm">Logout</a>
 	</div>
 	
 	<div class="col-sm-6">
@@ -27,9 +26,9 @@
 					<strong>email</strong>: <%=user.local.username%><br />
 					<strong>password</strong>: <%=user.local.password%><br />
 				</p>
-				<a href="/unlink/local" class="btn btn-default" >Unlink</a>
+				<a href="/auth/unlink/local" class="btn btn-default" >Unlink</a>
 			<% } else { %>
-				<a href="/connect/local" class="btn btn-default" >Connect Local</a>
+				<a href="/auth/connect/local" class="btn btn-default" >Connect Local</a>
 			<% } %>
 		</div>
 	</div>
@@ -43,9 +42,9 @@
 					<strong>email</strong>: <%=user.facebook.email%><br />
 					<strong>name</strong>: <%=user.facebook.name%><br />
 				</p>
-				<a href="/unlink/facebook" class="btn btn-primary" >Unlink</a>
+				<a href="/auth/unlink/facebook" class="btn btn-primary" >Unlink</a>
 			<% } else { %>
-				<a href="/connect/facebook" class="btn btn-primary" >Connect Facebook</a>
+				<a href="/auth/connect/facebook" class="btn btn-primary" >Connect Facebook</a>
 			<% } %>
 		</div>
 	</div>
@@ -59,9 +58,9 @@
 					<strong>email</strong>: <%=user.google.email%><br />
 					<strong>name</strong>: <%=user.google.name%><br />
 				</p>
-				<a href="/unlink/google" class="btn btn-danger" >Unlink</a>
+				<a href="/auth/unlink/google" class="btn btn-danger" >Unlink</a>
 			<% } else { %>
-				<a href="/connect/google" class="btn btn-danger" >Connect Google</a>
+				<a href="/auth/connect/google" class="btn btn-danger" >Connect Google</a>
 			<% } %>
 		</div>
 	</div>

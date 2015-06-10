@@ -10,7 +10,6 @@ var passport = require('passport');
 var flash = require('connect-flash');
 var MongoStore = require('connect-mongo')(session);
 
-var routes = require('./app/routes');
 var configDB = require('./config/database');
 mongoose.connect(configDB.url);
 
@@ -33,17 +32,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.use(function(req, res, next){
-	console.log(req.session);
-	console.log('=============================');
-	console.log(req.user);
-	next();
-});
-
 app.set('view engine', 'ejs');
 
-routes(app, passport);
+var auth = express.Router();
+require('./routes/auth')(auth, passport);
+app.use('/auth', auth);
 
-app.listen(port);
+var secure = express.Router();
+require('./routes/secure')(secure, passport);
+app.use('/', secure);
+
+app.listen(port); 
 
 console.log('Server running on port '+port);
