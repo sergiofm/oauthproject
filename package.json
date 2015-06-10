@@ -9,12 +9,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.12.4",
-    "morgan": "^1.5.3",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "latest",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "latest",
-    "express-session":"latest",
-    "mongoose": "latest",
     "ejs": "latest",
-    "body-parser": "latest"
+    "express": "^4.12.4",
+    "express-session": "latest",
+    "mongoose": "latest",
+    "morgan": "^1.5.3",
+    "passport": "latest",
+    "passport-google-oauth": "^0.2.0",
+    "passport-local": "^1.0.0"
   }
 }
